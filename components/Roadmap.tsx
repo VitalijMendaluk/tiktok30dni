@@ -76,7 +76,7 @@ export default function Roadmap({ roadmap, userName, niche, onReset }: Props) {
     (newPct: number) => {
       for (const m of MILESTONES) {
         if (newPct >= m && !shownMilestones.has(m)) {
-          setShownMilestones((prev) => new Set([...prev, m]));
+         setShownMilestones((prev) => new Set(Array.from(prev).concat(m)));
           setActiveMilestone(m);
           break;
         }
